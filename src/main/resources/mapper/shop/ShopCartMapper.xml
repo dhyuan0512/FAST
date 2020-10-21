@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.fast.sys.dao.ShopCartDao">
+
+	
+
+	<!-- 查找目标用户的购物车信息（ShopCart集合） -->
+	<select id="findCarts" resultType="com.cy.fast.sys.entity.ShopCart">
+		select user_id as userId,prod_id as prodId,amount,add_time as addTime
+		from shop_cart_user__prod
+		where user_id=#{userId}
+	</select>
+	
+	<!-- 统计目标用户购物车中指定类型商品的行数，用来验证购物车中是否已存在此类商品 -->
+	<select id="getUserProdCount" resultType="int">
+		select count(*)
+		from shop_cart_user__prod
+		where user_id=#{userId} and prod_id=#{prodId}
+	</select>
+	
+	<!-- 查找指定商品信息（ShopCart实体） -->
+	<select id="findById" resultType="com.cy.fast.sys.entity.ShopCart">
+		select user_id as userId,prod_id as prodId,amount,add_time as addTime
+		from shop_cart_user__prod
+		where user_id=#{userId} and prod_id=#{prodId}
+	</select>
+	
+	<!-- 向目标用户购物车中添加指定类型商品 -->
+	<insert id="addProd">
+		insert into shop_cart_user__prod
+		values(#{userId},#{prodId},#{amount},now())
+	</insert>
+	
+	<!-- 从目标用户购物车中删除指定类型商品 -->
+	<delete id="deleteProd">
+		delete from shop_cart_user__prod
+		where user_id = #{userId} and prod_id = #{prodId}
+	</delete>
+	
+	<!-- 修改目标用户购物车中指定类型商品的数量 -->
+	<update id="updateProdAmount">
+		update shop_cart_user__prod
+		set amount=#{amount}
+		where user_id=#{userId} and prod_id=#{prodId}
+	</update>
+	
+	<!-- 增加目标用户购物车中指定类型商品的数量 -->
+	<update id="increaseProdAmount">
+		update shop_cart_user__prod
+		set amount=amount+#{increase}
+		where user_id=#{userId} and prod_id=#{prodId}
+	</update>
+	
+</mapper>

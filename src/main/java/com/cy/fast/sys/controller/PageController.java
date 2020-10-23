@@ -46,11 +46,6 @@ public class PageController {
         return "shop/shop_cart";
     }
 
-    @RequestMapping("/sss")
-    public String doSsousu() {
-        return "sss";
-    }
-
     //优化打开界面返回UI
     //rest风格
     @RequestMapping("{module}/{moduleUI}")

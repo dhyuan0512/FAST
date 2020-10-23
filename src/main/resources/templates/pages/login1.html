@@ -30,23 +30,16 @@
     </div>
 </div>
 <script type="text/javascript">
+
     $(function () {
         Victor("container", "output");   //登陆背景函数
-        //$("#entry_name").focus();
-        /*  $(document).keydown(function(event){
-             if(event.keyCode==13){ */
         $("#entry_btn").click(index);
-        // }
-        // });
     });
 
-    // $("#entry_btn").click(index);
     function index() {
-
         var params = {
             username: $("#usernameId").val(),
             password: $("#passwordId").val(),
-            // isRememberMe:$("#rememberId").prop("checked"),
         }
         var url = "user/login1";
         console.log("params", params);
@@ -61,9 +54,6 @@
             return false;//防止刷新时重复提交
         });
     }
-
-    alert("请输入账号密码登录!")
-
 
 </script>
 </body>

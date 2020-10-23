@@ -86,7 +86,7 @@ public class SysUserController {
         Subject subject1 = SecurityUtils.getSubject();
         UsernamePasswordToken token1 = new UsernamePasswordToken(username, password);
         subject1.login(token1);
-        return new JsonResult("登陆成功!");
+        return new JsonResult("登录成功!");
     }
 
     @RequestMapping("/doSaveUser")

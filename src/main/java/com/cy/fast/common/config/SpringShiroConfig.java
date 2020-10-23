@@ -29,10 +29,8 @@ public class SpringShiroConfig {
 	 * @return
 	 */
 	@Bean
-	public ShiroFilterFactoryBean shiroFilterFactory (
-			SecurityManager securityManager) {
-		ShiroFilterFactoryBean sfBean=
-				new ShiroFilterFactoryBean();
+	public ShiroFilterFactoryBean shiroFilterFactory (SecurityManager securityManager) {
+		ShiroFilterFactoryBean sfBean= new ShiroFilterFactoryBean();
 		sfBean.setSecurityManager(securityManager);
 		//未认证先跳转
 		sfBean.setLoginUrl("/doLoginUI");

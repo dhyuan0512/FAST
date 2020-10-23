@@ -29,8 +29,7 @@ public class SysLogAspect {
      * 环绕通知(目标方法执行之前和之后都可以执行)
      */
     @Around("logPointCut()")
-    public Object around(ProceedingJoinPoint jp)
-            throws Throwable {
+    public Object around(ProceedingJoinPoint jp) throws Throwable {
         try {
             log.info("开始 time:" + System.currentTimeMillis());
             Object result = jp.proceed();//调用下一个切面方法或目标方法

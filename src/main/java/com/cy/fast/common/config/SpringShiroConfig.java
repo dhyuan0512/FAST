@@ -16,10 +16,8 @@ public class SpringShiroConfig {
      * 配置SecurityManager对象(shiro核心安全管理器对象)
      */
     @Bean
-    public SecurityManager securityManager(
-            Realm realm) {
-        DefaultWebSecurityManager sManager =
-                new DefaultWebSecurityManager();
+    public SecurityManager securityManager(Realm realm) {
+        DefaultWebSecurityManager sManager = new DefaultWebSecurityManager();
         sManager.setRealm(realm);
         return sManager;
     }

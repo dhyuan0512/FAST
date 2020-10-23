@@ -18,10 +18,13 @@ import com.cy.fast.sys.vo.SysRoleMenuVo;
 
 @Service
 public class SysRoleServiceImpl implements SysRoleService {
+
     @Autowired
     private SysRoleDao sysRoleDao;
+
     @Autowired
     private SysRoleMenuDao sysRoleMenuDao;
+
     @Autowired
     private SysUserDao sysUserRoleDao;
 

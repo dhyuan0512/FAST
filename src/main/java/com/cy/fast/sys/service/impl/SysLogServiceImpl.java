@@ -13,6 +13,7 @@ import com.cy.fast.sys.service.SysLogService;
 
 @Service
 public class SysLogServiceImpl implements SysLogService {
+
     @Autowired   //依赖关系
     private SysLogDao sysLogDao;
 

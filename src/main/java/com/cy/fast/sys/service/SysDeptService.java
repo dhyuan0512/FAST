@@ -12,9 +12,9 @@ public interface SysDeptService {
 
     int saveObject(SysDept entity);
 
-    List<Node> findZtreeDeptNodes();
-
     int deleteObject(Integer id);
+
+    List<Node> findZtreeDeptNodes();
 
     List<Map<String, Object>> findObjects();
 }

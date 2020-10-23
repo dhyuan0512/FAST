@@ -15,9 +15,7 @@ public interface SysRoleService {
 
     SysRoleMenuVo findObjectById(Integer id);
 
-
     int saveObject(SysRole entity, Integer[] menuIds);
-
 
     int deleteObject(Integer id);
 

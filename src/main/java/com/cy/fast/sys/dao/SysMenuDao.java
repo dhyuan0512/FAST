@@ -3,8 +3,9 @@ package com.cy.fast.sys.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.cy.fast.common.vo.Node;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.ognl.Node;
+
 
 import com.cy.fast.sys.entity.SysMenu;
 

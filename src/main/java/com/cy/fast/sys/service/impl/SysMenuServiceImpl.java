@@ -3,7 +3,7 @@ package com.cy.fast.sys.service.impl;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.ognl.Node;
+import com.cy.fast.common.vo.Node;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -16,12 +16,15 @@ import com.cy.fast.sys.service.SysMenuService;
 
 @Service
 public class SysMenuServiceImpl implements SysMenuService {
+
     @Autowired
     private SysMenuDao sysMenuDao;
+
     @Autowired
     private SysRoleMenuDao sysRoleMenuDao;
-    //数据返回业务
 
+
+    //数据返回业务
     @Override
     public List<Map<String, Object>> findObjects() {
         List<Map<String, Object>> list =

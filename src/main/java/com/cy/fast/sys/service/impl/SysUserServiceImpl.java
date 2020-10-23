@@ -21,9 +21,11 @@ import com.cy.fast.sys.vo.SysUserDeptVo;
 
 @Service
 public class SysUserServiceImpl<sysUserRoleDao> implements SysUserService {
+
     // @Resource
     @Autowired
     private SysUserDao sysUserDao;
+
     @Autowired
     private SysUserRoleDao sysUserRoleDao;
 

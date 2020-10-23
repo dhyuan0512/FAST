@@ -14,6 +14,7 @@ import com.cy.fast.sys.service.FastUsersService;
 
 @Service
 public class FastUsersServiceImpl implements FastUsersService {
+
     @Autowired
     private FastUserDao fastUserDao;
 

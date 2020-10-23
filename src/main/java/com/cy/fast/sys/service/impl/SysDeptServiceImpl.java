@@ -17,8 +17,10 @@ import com.cy.fast.sys.service.SysDeptService;
 
 @Service
 public class SysDeptServiceImpl implements SysDeptService {
+
     @Autowired
     private SysDeptDao sysDeptDao;
+
     @Autowired
     private SysUserDao sysUserDao;
 

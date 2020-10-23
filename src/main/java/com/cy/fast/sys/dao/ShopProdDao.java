@@ -6,6 +6,8 @@ import com.cy.fast.sys.entity.ShopProd;
 
 @Mapper
 public interface ShopProdDao {
-	/** 根据商品id查找商品信息 */
-	ShopProd findById(Integer prodId);
+    /**
+     * 根据商品id查找商品信息
+     */
+    ShopProd findById(Integer prodId);
 }

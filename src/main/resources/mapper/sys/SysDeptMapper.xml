@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cy.fast.sys.dao.SysDeptDao">
 
 
-	<select id="findZtreeDeptNodes"
-		resultType="com.cy.fast.common.vo.Node">
+    <select id="findZtreeDeptNodes"
+            resultType="com.cy.fast.common.vo.Node">
 		select id,name,parentId
 		from sys_depts
 	</select>
 
-	<select id="getChildCount" parameterType="int" resultType="int">
+    <select id="getChildCount" parameterType="int" resultType="int">
 		select count(*)
 		from sys_depts
 		where parentId=#{id}
 	</select>
 
-	<select id="findById"
-		resultType="com.cy.fast.sys.entity.SysDept">
+    <select id="findById"
+            resultType="com.cy.fast.sys.entity.SysDept">
 		select *
 		from sys_depts
 		where id=#{id}
 	</select>
 
-	<update id="updateObject"
-		parameterType="com.cy.fast.sys.entity.SysDept">
+    <update id="updateObject"
+            parameterType="com.cy.fast.sys.entity.SysDept">
 		update sys_depts
 		set
 		name=#{name},
@@ -36,8 +36,8 @@
 		where id=#{id}
 	</update>
 
-	<insert id="insertObject"
-		parameterType="com.cy.fast.sys.entity.SysDept">
+    <insert id="insertObject"
+            parameterType="com.cy.fast.sys.entity.SysDept">
 		insert into sys_depts
 		(name,sort,note,parentId,createdTime,modifiedTime,createdUser,modifiedUser)
 		values
@@ -45,12 +45,12 @@
 	</insert>
 
 
-	<delete id="deleteObject" parameterType="int">
+    <delete id="deleteObject" parameterType="int">
 		delete from sys_depts
 		where id=#{id}
 	</delete>
 
-	<select id="findObjects" resultType="map">
+    <select id="findObjects" resultType="map">
 		select a.*,(select b.name  from sys_depts b where a.parentId=b.id) parentName from sys_depts a
 	</select>
 

@@ -17,15 +17,16 @@ import com.cy.fast.common.vo.JsonResult;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     /**
-     *运行时异常
+     * 运行时异常
      */
     @ExceptionHandler(RuntimeException.class)
     public JsonResult dohandleRuntimeException(RuntimeException e) {
         e.printStackTrace();
         return new JsonResult(e);
     }
+
     /**
-     *shiro框架异常
+     * shiro框架异常
      */
     @ExceptionHandler(ShiroException.class)
     @ResponseBody

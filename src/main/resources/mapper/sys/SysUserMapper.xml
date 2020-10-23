@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cy.fast.sys.dao.SysUserDao">
 
-	<select id="findUserByUserName"
-		resultType="com.cy.fast.sys.entity.SysUser">
+    <select id="findUserByUserName"
+            resultType="com.cy.fast.sys.entity.SysUser">
 		select *
 		from sys_users
 		where username=#{username}
 	</select>
 
-	<update id="updatePassword">
+    <update id="updatePassword">
 		update sys_users
 		set password=#{password},
 		salt=#{salt},
@@ -18,40 +18,40 @@
 		where id=#{id}
 	</update>
 
-	<update id="updateObject"
-		parameterType="com.cy.fast.sys.entity.SysUser">
-		update sys_users
-		<set>
-			<if test="username!=null and username!=''">
-				username=#{username},
-			</if>
-			<if test="email!=null and email!=''">
-				email=#{email},
-			</if>
-			<if test="mobile!=null and mobile!=''">
-				mobile=#{mobile},
-			</if>
-			<if test="deptId!=null and deptId!=''">
-				deptId=#{deptId},
-			</if>
-			<if test="modifiedUser!=null and modifiedUser!=''">
-				modifiedUser=#{modifiedUser},
-			</if>
-			modifiedTime=now()
-		</set>
-		where id=#{id}
-	</update>
+    <update id="updateObject"
+            parameterType="com.cy.fast.sys.entity.SysUser">
+        update sys_users
+        <set>
+            <if test="username!=null and username!=''">
+                username=#{username},
+            </if>
+            <if test="email!=null and email!=''">
+                email=#{email},
+            </if>
+            <if test="mobile!=null and mobile!=''">
+                mobile=#{mobile},
+            </if>
+            <if test="deptId!=null and deptId!=''">
+                deptId=#{deptId},
+            </if>
+            <if test="modifiedUser!=null and modifiedUser!=''">
+                modifiedUser=#{modifiedUser},
+            </if>
+            modifiedTime=now()
+        </set>
+        where id=#{id}
+    </update>
 
-	<select id="findObjectById" parameterType="int"
-		resultMap="sysUserMap">
+    <select id="findObjectById" parameterType="int"
+            resultMap="sysUserMap">
 		select *
 		from sys_users
 		where id=#{id}
 	</select>
 
-	<insert id="insertObject"
-		parameterType="com.cy.fast.sys.entity.SysUser" useGeneratedKeys="true"
-		keyProperty="id">
+    <insert id="insertObject"
+            parameterType="com.cy.fast.sys.entity.SysUser" useGeneratedKeys="true"
+            keyProperty="id">
 		insert into sys_users
 		(username,password,deptId,email,mobile,salt,valid,
 		createdTime,modifiedTime,createdUser,modifiedUser)
@@ -60,7 +60,7 @@
 		now(),now(),#{createdUser},#{modifiedUser})
 	</insert>
 
-	<update id="validById">
+    <update id="validById">
 		update sys_users
 		set valid=#{valid},
 		modifiedUser=#{modifiedUser},
@@ -68,34 +68,34 @@
 		where id=#{id}
 	</update>
 
-	<resultMap id="sysUserMap"
-		type="com.cy.fast.sys.vo.SysUserDeptVo">
-		<!-- 关联查询 -->
-		<association property="sysDept" column="deptId"
-			select="com.cy.fast.sys.dao.SysDeptDao.findById">
-		</association>
-	</resultMap>
+    <resultMap id="sysUserMap"
+               type="com.cy.fast.sys.vo.SysUserDeptVo">
+        <!-- 关联查询 -->
+        <association property="sysDept" column="deptId"
+                     select="com.cy.fast.sys.dao.SysDeptDao.findById">
+        </association>
+    </resultMap>
 
-	<select id="findPageObjects" resultMap="sysUserMap">
-		select * from sys_users
-		<include refid="queryWhereId" />
-		limit #{startIndex},#{pageSize}
-	</select>
+    <select id="findPageObjects" resultMap="sysUserMap">
+        select * from sys_users
+        <include refid="queryWhereId"/>
+        limit #{startIndex},#{pageSize}
+    </select>
 
-	<select id="getRowCount" resultType="int">
-		select count(*) from sys_users
-		<include refid="queryWhereId" />
-	</select>
+    <select id="getRowCount" resultType="int">
+        select count(*) from sys_users
+        <include refid="queryWhereId"/>
+    </select>
 
-	<sql id="queryWhereId">
-		<where>
-			<if test="username!=null and username!=''">
-				username like concat("%",#{username},"%")
-			</if>
-		</where>
-	</sql>
+    <sql id="queryWhereId">
+        <where>
+            <if test="username!=null and username!=''">
+                username like concat("%",#{username},"%")
+            </if>
+        </where>
+    </sql>
 
-	<delete id="deleteObjectsByRoleId" parameterType="int">
+    <delete id="deleteObjectsByRoleId" parameterType="int">
 		delete
 		from
 		sys_user_roles
@@ -103,7 +103,7 @@
 	</delete>
 
 
-	<select id="getUserCountByDeptId" resultType="int">
+    <select id="getUserCountByDeptId" resultType="int">
 		select count(*)
 		from sys_users
 		where deptId=#{deptId}

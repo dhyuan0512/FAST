@@ -7,12 +7,12 @@ import com.cy.fast.sys.entity.SysUser;
 
 @Mapper
 public interface FastUserDao {
-	
-	int insertObject(SysUser entity);
-	
-	@Select("select * from sys_users where username = #{username}")
-	SysUser findUserByUserName(String username);
-	
-	@Select("select username from sys_users where username=#{name}")
-	String findNameByName(String name);
+
+    int insertObject(SysUser entity);
+
+    @Select("select * from sys_users where username = #{username}")
+    SysUser findUserByUserName(String username);
+
+    @Select("select username from sys_users where username=#{name}")
+    String findNameByName(String name);
 }

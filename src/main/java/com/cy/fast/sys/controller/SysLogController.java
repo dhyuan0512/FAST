@@ -13,18 +13,18 @@ import com.cy.fast.sys.service.SysLogService;
 @RequestMapping("/log/")
 @RestController
 public class SysLogController {
-	@Autowired // 依赖于service
-	private SysLogService sysLogService;
+    @Autowired // 依赖于service
+    private SysLogService sysLogService;
 
-	@RequestMapping("doFindPageObjects")
-	public JsonResult doFindPageObjects(String username, Integer pageCurrent) {
-		PageObject<SysLog> pageObject = sysLogService.findPageObjects(username, pageCurrent);
-		return new JsonResult(pageObject);
-	}
+    @RequestMapping("doFindPageObjects")
+    public JsonResult doFindPageObjects(String username, Integer pageCurrent) {
+        PageObject<SysLog> pageObject = sysLogService.findPageObjects(username, pageCurrent);
+        return new JsonResult(pageObject);
+    }
 
-	@RequestMapping("doDeleteObjects")
-	public JsonResult doDeleteObjects(Integer... ids) {
-		sysLogService.deleteObjects(ids);
-		return new JsonResult("删除成功!");
-	}
+    @RequestMapping("doDeleteObjects")
+    public JsonResult doDeleteObjects(Integer... ids) {
+        sysLogService.deleteObjects(ids);
+        return new JsonResult("删除成功!");
+    }
 }

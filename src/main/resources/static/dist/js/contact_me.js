@@ -63,7 +63,7 @@ $(function() {
 });
 function doSave(params){
 	var url = "/user/doSaveUser";
-	debugger
+	//debugger
  	 $.getJSON(url,params,function(status){
 		if(status.state==1){
 			alert(status.message)

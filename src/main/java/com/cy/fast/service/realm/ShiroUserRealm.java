@@ -21,6 +21,7 @@ import com.cy.fast.sys.entity.SysUser;
 
 @Service
 public class ShiroUserRealm extends AuthorizingRealm {
+
     @Autowired
     private SysUserDao sysUserDao;
 

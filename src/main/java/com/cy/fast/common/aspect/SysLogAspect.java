@@ -32,9 +32,9 @@ public class SysLogAspect {
     @Around("logPointCut()")
     public Object around(ProceedingJoinPoint jp) throws Throwable {
         try {
-            log.info("开始 time:" + System.currentTimeMillis());
+            log.info("开始 time:" + System.currentTimeMillis()/1000);
             Object result = jp.proceed();//调用下一个切面方法或目标方法
-            log.info("结束 time:" + System.currentTimeMillis());
+            log.info("结束 time:" + System.currentTimeMillis()/1000);
             //log.info("切面AOP日志数据{}",result.toString());
             return result;
         } catch (Throwable e) {

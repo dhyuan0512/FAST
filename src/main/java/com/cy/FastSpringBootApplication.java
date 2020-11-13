@@ -10,9 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @MapperScan("com.cy.fast.sys.dao")
-public class CgbSboot01Application {
+public class FastSpringBootApplication {
 	public static void main(String[] args) {
 		//启动spring boot应用
-		SpringApplication.run(CgbSboot01Application.class, args);
+		SpringApplication.run(FastSpringBootApplication.class, args);
 	}
 }

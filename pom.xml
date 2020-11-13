@@ -10,11 +10,11 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cy</groupId>
-	<artifactId>CGB-FAST-SYS-1</artifactId>
+	<artifactId>fast-sys</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>CGB-FAST-SYS-1</name>
-	<description>Demo project for Spring Boot</description>
+	<name>fast-sys</name>
+	<description>fast-sys</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>

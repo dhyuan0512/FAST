@@ -31,7 +31,7 @@ public class SwaggerConfig {
         return (new Docket(DocumentationType.SWAGGER_2))
                 .apiInfo(this.apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.cy.fast"))
+                .apis(RequestHandlerSelectors.basePackage("com.cy.fast.sys.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -45,8 +45,8 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("测试Swagger项目".concat(" RESTful APIs"))
                 .description("demo测试项目-FAST")
-                .termsOfServiceUrl("https://xsqwe.com:8091")
-                .contact(new Contact("demo-FAST","http://xsqwe.com:8091","dhyuan0512@163.com"))
+                .termsOfServiceUrl("https://192.168.200.56:8091")
+                .contact(new Contact("demo-FAST","http://192.168.200.56:8091","dhyuan0512@163.com"))
                 .version("1.0")
                 .build();
     }

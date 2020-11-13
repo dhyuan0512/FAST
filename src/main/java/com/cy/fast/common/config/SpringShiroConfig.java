@@ -47,6 +47,12 @@ public class SpringShiroConfig {
         map.put("/doLogout", "logout");
         map.put("/index", "anon");
         map.put("/shop_cart", "anon");
+        map.put("/swagger-ui.html", "anon");
+        map.put("/swagger-resources", "anon");
+        map.put("/v2/api-docs", "anon");
+        map.put("/webjars/springfox-swagger-ui/**", "anon");
+        map.put("/configuration/security", "anon");
+        map.put("/configuration/ui", "anon");
         //除了匿名访问的资源,其它都要认证("authc")后访问
         map.put("/**", "authc");
         sfBean.setFilterChainDefinitionMap(map);

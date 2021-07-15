@@ -3,8 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cy.fast.sys.dao.SysUserDao">
 
-    <select id="findUserByUserName"
-            resultType="com.cy.fast.sys.entity.SysUser">
+    <select id="findUserByUserName" resultType="com.cy.fast.sys.entity.SysUser">
 		select *
 		from sys_users
 		where username=#{username}
@@ -18,8 +17,7 @@
 		where id=#{id}
 	</update>
 
-    <update id="updateObject"
-            parameterType="com.cy.fast.sys.entity.SysUser">
+    <update id="updateObject" parameterType="com.cy.fast.sys.entity.SysUser">
         update sys_users
         <set>
             <if test="username!=null and username!=''">
@@ -42,16 +40,13 @@
         where id=#{id}
     </update>
 
-    <select id="findObjectById" parameterType="int"
-            resultMap="sysUserMap">
+    <select id="findObjectById" parameterType="int" resultMap="sysUserMap">
 		select *
 		from sys_users
 		where id=#{id}
 	</select>
 
-    <insert id="insertObject"
-            parameterType="com.cy.fast.sys.entity.SysUser" useGeneratedKeys="true"
-            keyProperty="id">
+    <insert id="insertObject" parameterType="com.cy.fast.sys.entity.SysUser" useGeneratedKeys="true" keyProperty="id">
 		insert into sys_users
 		(username,password,deptId,email,mobile,salt,valid,
 		createdTime,modifiedTime,createdUser,modifiedUser)
@@ -68,12 +63,9 @@
 		where id=#{id}
 	</update>
 
-    <resultMap id="sysUserMap"
-               type="com.cy.fast.sys.vo.SysUserDeptVo">
+    <resultMap id="sysUserMap" type="com.cy.fast.sys.vo.SysUserDeptVo">
         <!-- 关联查询 -->
-        <association property="sysDept" column="deptId"
-                     select="com.cy.fast.sys.dao.SysDeptDao.findById">
-        </association>
+        <association property="sysDept" column="deptId" select="com.cy.fast.sys.dao.SysDeptDao.findById"></association>
     </resultMap>
 
     <select id="findPageObjects" resultMap="sysUserMap">

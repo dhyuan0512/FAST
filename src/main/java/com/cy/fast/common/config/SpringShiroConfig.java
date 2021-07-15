@@ -36,8 +36,7 @@ public class SpringShiroConfig {
         //未认证先跳转
         sfBean.setLoginUrl("/doLoginUI");
         //定义map指定请求过滤规则(哪些资源允许匿名访问,哪些必须认证访问)
-        LinkedHashMap<String, String> map =
-                new LinkedHashMap<>();
+        LinkedHashMap<String, String> map = new LinkedHashMap<>();
         //静态资源允许匿名访问:"anon"
         map.put("/bower_components/**", "anon");
         map.put("/build/**", "anon");
